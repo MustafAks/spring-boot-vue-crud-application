@@ -27,6 +27,11 @@ public class CourseController {
         return courseService.getAll();
     }
 
+    @PostMapping(value = "/list")
+    public List<Course> list(@RequestBody Course course){
+        return courseService.list(course);
+    }
+
     @PostMapping(value = "/")
     public ResponseEntity<Course> save(@RequestBody Course course){
         return new ResponseEntity<>(courseService.save(course),HttpStatus.OK);
